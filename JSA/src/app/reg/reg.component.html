@@ -1,0 +1,30 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reg.component.css">
+</head>
+<h2>Job Search Application</h2>
+<body>
+    <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)" action="/" method="get" >
+        <p class="name">Name:
+            <input ngModel name="Name" id="Name" type="text" class="name1" placeholder="Enter your Name" required>
+        </p>
+        <p class="email">Email:
+            <input ngModel name="Email" id="Email" type="email" class="email1" placeholder="abc@gmail.com" required>
+        </p>
+        <p class="phone-no">Phone Number:
+            <input ngModel name="phone-no" id="phone-no" type="numbers" class="phone-no1" placeholder="9999-999-999" required>
+        </p>
+        <p class="password">Password:
+            <input ngModel name="password" id="password" type="password" class="password1" placeholder="" required>
+        </p>
+        <div class="register">Register yourself: 
+            <input ngModel type="radio" id="job-seeker" name="register" value="Job-Seeker" class="job-seeker">
+            <label for="job-seeker">Job Seeker</label><br>
+            <input ngModel type="radio" id="company" name="register" value="Company" class="company">
+            <label for="company">Company</label><br>
+            
+        </div>
+        <input type="submit" value="Next" class="next">
+    </form>
+</body>
+

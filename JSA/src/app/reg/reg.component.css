@@ -1,0 +1,42 @@
+h2{
+    text-align: center;
+}
+body{
+    margin-top: 70px;
+}
+.name{
+    margin-left: 530px;
+}
+.name1{
+    margin-left: 80px;
+}
+.email{
+    margin-left: 530px;
+}
+.email1{
+    margin-left: 80px;
+}
+.phone-no{
+    margin-left: 530px;
+}
+.phone-no1{
+    margin-left: 23px;
+}
+.password{
+    margin-left: 530px;
+}
+.password1{
+    margin-left: 60px;
+}
+.register{
+    margin-left: 530px;
+}
+.job-seeker{
+    margin-left: 10px;
+}
+.company{
+    margin-left: 120px;
+}
+.next{
+    margin-left: 650px;
+}
