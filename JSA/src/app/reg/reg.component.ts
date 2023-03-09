@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-reg',
@@ -10,7 +11,7 @@ export class RegComponent {
   
   
 
-  getValues(val:string){
-    console.warn(val);
+  getValues(val:NgForm){
+    console.log(val);
   }
 }

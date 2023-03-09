@@ -2,41 +2,57 @@ h2{
     text-align: center;
 }
 body{
-    margin-top: 70px;
+    margin-top: 50px;
 }
 .name{
-    margin-left: 530px;
+    margin-left: 500px;
 }
 .name1{
-    margin-left: 80px;
+    margin-left: 63px;
 }
 .email{
-    margin-left: 530px;
+    margin-left: 500px;
 }
 .email1{
-    margin-left: 80px;
+    margin-left: 62px;
 }
 .phone-no{
-    margin-left: 530px;
+    margin-left: 500px;
 }
 .phone-no1{
-    margin-left: 23px;
+    margin-left: 5px;
 }
-.password{
-    margin-left: 530px;
+.company-type{
+    margin-left: 500px;
 }
-.password1{
-    margin-left: 60px;
+.company-type1{
+    margin-left: 73px;
+}
+.location{
+    margin-left: 500px;
+}
+.location1{
+    margin-left: 50px;
+}
+.role{
+    margin-left: 500px;
+}
+.role1{
+    margin-left: 77px;
+}
+.salary{
+    margin-left: 500px;
+}
+.salary1{
+    margin-left: 52px;
 }
 .register{
-    margin-left: 530px;
+    margin-left: 500px;
 }
-.job-seeker{
-    margin-left: 10px;
-}
-.company{
-    margin-left: 120px;
-}
+
 .next{
     margin-left: 650px;
+}
+.name-error{
+    margin-left: 175px;
 }

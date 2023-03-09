@@ -4,27 +4,43 @@
 </head>
 <h2>Job Search Application</h2>
 <body>
-    <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)" action="/" method="get" >
-        <p class="name">Name:
-            <input ngModel name="Name" id="Name" type="text" class="name1" placeholder="Enter your Name" required>
+    <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
+        <p class="name">Company Name:
+            <input ngModel required #name="ngModel" pattern="[a-z A-z 0-9]+$" name="Name" id="Name" type="text" class="name1" placeholder="Ex. abc solutions">
+            <br>
+            <span *ngIf="name.invalid && name.touched && name.dirty" style="color:red ;" class="name-error">Please enter a valid name</span>
         </p>
-        <p class="email">Email:
-            <input ngModel name="Email" id="Email" type="email" class="email1" placeholder="abc@gmail.com" required>
+        <p class="email">Company Email:
+            <input ngModel #email="ngModel" pattern="[a-z0-9.]+@[a-z0-9.]+\.[a-z]{2,}$" name="Email" id="Email" type="email" class="email1" placeholder="abc@gmail.com" required>
+            <br>
+            <span *ngIf="email.invalid && email.touched && email.dirty" style="color:red ;" class="name-error">Please enter a valid Mail id</span>
         </p>
-        <p class="phone-no">Phone Number:
-            <input ngModel name="phone-no" id="phone-no" type="numbers" class="phone-no1" placeholder="9999-999-999" required>
+        <p class="phone-no">Company Phone Number:
+            <input ngModel #phoneno1="ngModel" pattern="[0-9]{5}-[0-9]{5}" name="phone-no" id="phone-no" type="numbers" class="phone-no1" placeholder="99999-99999" required>
+            <br>
+            <span *ngIf="phoneno1.invalid && phoneno1.touched && phoneno1.dirty" style="color:red ;" class="name-error">Please enter a valid number</span>
         </p>
-        <p class="password">Password:
-            <input ngModel name="password" id="password" type="password" class="password1" placeholder="" required>
+        <p class="company-type">Company type:
+            <input ngModel #type="ngModel" pattern="[a-z A-z]+$" name="company-type" id="company-type" type="text" class="company-type1" placeholder="Product/Service-based" required>
+            <br>
+            <span *ngIf="type.invalid && type.touched && type.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
         </p>
-        <div class="register">Register yourself: 
-            <input ngModel type="radio" id="job-seeker" name="register" value="Job-Seeker" class="job-seeker">
-            <label for="job-seeker">Job Seeker</label><br>
-            <input ngModel type="radio" id="company" name="register" value="Company" class="company">
-            <label for="company">Company</label><br>
-            
-        </div>
-        <input type="submit" value="Next" class="next">
+        <p class="location">Company location:
+            <input ngModel #location="ngModel" pattern="[a-z A-z]+$" name="location" id="location" type="text" class="location1" placeholder="Ex. Chennai" required>
+            <br>
+            <span *ngIf="location.invalid && location.touched && location.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
+        </p>
+        <p class="role">Intaking roles:
+            <input ngModel #role="ngModel" pattern="[a-z A-z]+$" name="role" id="role" type="text" class="role1" placeholder="Ex. Front-end Developer" required>
+            <br>
+            <span *ngIf="role.invalid && role.touched && role.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
+        </p>
+        <p class="salary">Salary per annum:
+            <input ngModel #salary="ngModel" pattern="[0-9]+" name="salary" id="salary" type="numbers" class="salary1" placeholder="Amount in Rs./-" required>
+            <br>
+            <span *ngIf="salary.invalid && salary.touched && salary.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
+        </p>
+        <button [disabled]="simpleForm.invalid" type="submit" class="next">Next</button>
     </form>
 </body>
 
