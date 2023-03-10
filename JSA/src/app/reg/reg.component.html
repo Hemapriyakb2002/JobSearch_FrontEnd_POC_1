@@ -2,7 +2,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reg.component.css">
 </head>
-<h2>Job Search Application</h2>
+<h3>Company Job Post Details</h3>
 <body>
     <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
         <p class="name">Company Name:
@@ -41,6 +41,7 @@
             <span *ngIf="salary.invalid && salary.touched && salary.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
         </p>
         <button [disabled]="simpleForm.invalid" type="submit" class="next">Next</button>
+       
     </form>
 </body>
 
