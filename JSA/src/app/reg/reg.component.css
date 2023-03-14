@@ -25,35 +25,31 @@ body{
 .phone-no1{
     margin-left: 5px;
 }
-.company-type{
+.qualification{
     margin-left: 500px;
 }
-.company-type1{
-    margin-left: 73px;
+.qualification1{
+    margin-left: 32px;
 }
-.location{
+.degree{
     margin-left: 500px;
 }
-.location1{
-    margin-left: 50px;
+.degree1{
+    margin-left: 125px;
 }
-.role{
+.city{
     margin-left: 500px;
 }
-.role1{
-    margin-left: 77px;
+.city1{
+    margin-left: 95px;
 }
-.salary{
+.address{
     margin-left: 500px;
 }
-.salary1{
-    margin-left: 52px;
+.address1{
+    margin-left: 15px;
 }
-.register{
-    margin-left: 500px;
-}
-
-.next{
+.submit{
     margin-left: 650px;
 }
 .name-error{

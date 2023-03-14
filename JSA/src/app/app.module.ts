@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CompanyRegComponent } from './company-reg/company-reg.component';
 import { CompanyLoginComponent } from './company-reg/company-login/company-login.component';
+import { CompanyJobpostComponent } from './company-reg/company-jobpost/company-jobpost.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { CompanyLoginComponent } from './company-reg/company-login/company-login
     RegComponent,
     HomepageComponent,
     CompanyRegComponent,
-    CompanyLoginComponent
+    CompanyLoginComponent,
+    CompanyJobpostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

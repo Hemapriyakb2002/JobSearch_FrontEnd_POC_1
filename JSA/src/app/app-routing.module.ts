@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CompanyJobpostComponent } from './company-reg/company-jobpost/company-jobpost.component';
 import { CompanyLoginComponent } from './company-reg/company-login/company-login.component';
 import { CompanyRegComponent } from './company-reg/company-reg.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     component:CompanyLoginComponent,
       path:'register/login'
+  },
+  {
+    component:CompanyJobpostComponent,
+    path:'register/jobpost'
   },
   {
     component: RegComponent,

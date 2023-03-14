@@ -9,9 +9,10 @@ import { NgForm } from '@angular/forms';
 })
 export class RegComponent {
   
-  
-
   getValues(val:NgForm){
     console.log(val);
+  }
+  show(){
+    alert("Job Applied Successfully...")
   }
 }

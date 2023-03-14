@@ -2,45 +2,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reg.component.css">
 </head>
-<h3>Company Job Post Details</h3>
+<h3>User job-apply Details</h3>
 <body>
     <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
-        <p class="name">Company Name:
-            <input ngModel required #name="ngModel" pattern="[a-z A-z 0-9]+$" name="Name" id="Name" type="text" class="name1" placeholder="Ex. abc solutions">
+        <p class="name">Candidate Name:
+            <input ngModel required #name="ngModel" pattern="[a-z A-z]+$" name="Name" id="Name" type="text" class="name1" placeholder="Enter your name">
             <br>
             <span *ngIf="name.invalid && name.touched && name.dirty" style="color:red ;" class="name-error">Please enter a valid name</span>
         </p>
-        <p class="email">Company Email:
+        <p class="email">Candidate Email:
             <input ngModel #email="ngModel" pattern="[a-z0-9.]+@[a-z0-9.]+\.[a-z]{2,}$" name="Email" id="Email" type="email" class="email1" placeholder="abc@gmail.com" required>
             <br>
             <span *ngIf="email.invalid && email.touched && email.dirty" style="color:red ;" class="name-error">Please enter a valid Mail id</span>
         </p>
-        <p class="phone-no">Company Phone Number:
+        <p class="phone-no">Candidate Phone Number:
             <input ngModel #phoneno1="ngModel" pattern="[0-9]{5}-[0-9]{5}" name="phone-no" id="phone-no" type="numbers" class="phone-no1" placeholder="99999-99999" required>
             <br>
             <span *ngIf="phoneno1.invalid && phoneno1.touched && phoneno1.dirty" style="color:red ;" class="name-error">Please enter a valid number</span>
         </p>
-        <p class="company-type">Company type:
-            <input ngModel #type="ngModel" pattern="[a-z A-z]+$" name="company-type" id="company-type" type="text" class="company-type1" placeholder="Product/Service-based" required>
+        <p class="qualification">Highest Qualification:
+            <input ngModel #type="ngModel" name="qualification" id="qualification" class="qualification1" placeholder="Ex. Diploma, HSC" required>
+            <datalist id="qualification">
+                <option value="SSLC">SSLC</option>
+                <option value="HSC">HSC</option>
+                <option value="Diploma">Diploma</option>
+                <option value="UG">UG</option>
+                <option value="PG">PG</option>
+                <option value="PSG">PSG</option>
+              </datalist>
             <br>
             <span *ngIf="type.invalid && type.touched && type.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
         </p>
-        <p class="location">Company location:
-            <input ngModel #location="ngModel" pattern="[a-z A-z]+$" name="location" id="location" type="text" class="location1" placeholder="Ex. Chennai" required>
+        <p class="degree">Degree:
+            <input ngModel #degree="ngModel" pattern="[a-z A-z]+$" name="degree" id="degree" type="text" class="degree1" placeholder="Ex. BE, MCA" required>
             <br>
-            <span *ngIf="location.invalid && location.touched && location.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
+            <span *ngIf="degree.invalid && degree.touched && degree.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
         </p>
-        <p class="role">Intaking roles:
-            <input ngModel #role="ngModel" pattern="[a-z A-z]+$" name="role" id="role" type="text" class="role1" placeholder="Ex. Front-end Developer" required>
+        <p class="address">Communication address:
+            <textarea ngModel class="address1" name="address" id="address" cols="20" rows="5" maxlength="100" placeholder="Enter your address" required></textarea>
+        </p>
+        <p class="city">Current city:
+            <input ngModel #city="ngModel" pattern="[a-z A-z]+$" name="city" id="city" type="text" class="city1" placeholder="Ex. Front-end Developer" required>
             <br>
-            <span *ngIf="role.invalid && role.touched && role.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
+            <span *ngIf="city.invalid && city.touched && city.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
         </p>
-        <p class="salary">Salary per annum:
-            <input ngModel #salary="ngModel" pattern="[0-9]+" name="salary" id="salary" type="numbers" class="salary1" placeholder="Amount in Rs./-" required>
-            <br>
-            <span *ngIf="salary.invalid && salary.touched && salary.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
-        </p>
-        <button [disabled]="simpleForm.invalid" type="submit" class="next">Next</button>
+        
+        <button [disabled]="simpleForm.invalid" type="submit" class="submit" (click)="show()">Submit</button>
        
     </form>
 </body>
