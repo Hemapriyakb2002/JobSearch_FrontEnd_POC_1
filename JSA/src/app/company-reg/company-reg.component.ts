@@ -13,7 +13,7 @@ export class CompanyRegComponent {
     console.log(data);
 
     //localStorage.setItem("session",JSON.stringify(data));
-    this.http.post(`http://127.0.0.1:8000`,data).subscribe((res)=>{
+   this.http.post<any>(`http://127.0.0.1:8000`,data).subscribe((res)=>{
       console.log(res);
     });
   }

@@ -15,7 +15,7 @@
             <span *ngIf="email.invalid && email.touched && email.dirty" style="color:red ;" class="name-error">Please enter a valid Mail id</span>
         </p>
         <p class="phone-no">Company Phone Number:
-            <input ngModel #phoneno1="ngModel" pattern="[0-9]{5}-[0-9]{5}" name="company_phone" id="phone-no" type="numbers" class="phone-no1" placeholder="99999-99999" required>
+            <input ngModel #phoneno1="ngModel" pattern="[0-9]{10}" name="company_phone" id="phone-no" type="numbers" class="phone-no1" placeholder="10-digit number" required>
             <br>
             <span *ngIf="phoneno1.invalid && phoneno1.touched && phoneno1.dirty" style="color:red ;" class="name-error">Please enter a valid number</span>
         </p>
