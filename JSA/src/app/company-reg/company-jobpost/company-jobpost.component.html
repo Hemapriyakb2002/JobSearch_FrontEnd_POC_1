@@ -1,0 +1,24 @@
+<head>
+    <link rel="stylesheet" href="company-jobpost.component.css">
+</head>
+<h3>Company Job post</h3>
+<body>
+    
+    <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
+        
+        <p class="role">Job role:
+            <input ngModel #role="ngModel" pattern="[a-z A-z 0-9]+$" name="role" id="role" type="role" class="role1" placeholder="Ex. Software Developer" required>
+            <br>
+            <span *ngIf="role.invalid && role.touched && role.dirty" style="color:red ;" class="name-error">Please enter a valid Mail id</span>
+        </p>
+        <p class="desc">Job Description:
+            <textarea ngModel class="desc1" name="desc" id="desc" cols="20" rows="5" maxlength="100" placeholder="Type Job Description" required></textarea>
+        </p>
+        
+        <br>
+        <button [disabled]="simpleForm.invalid" type="submit" class="submit" (click)="show()">
+           Submit
+        </button>
+       
+    </form>
+</body>

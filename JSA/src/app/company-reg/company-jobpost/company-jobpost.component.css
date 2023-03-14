@@ -1,0 +1,27 @@
+h3{
+    text-align: center;
+    background-color: rgb(138, 211, 245);
+    margin-top:0px;
+    padding: 15px ;
+}
+body{
+    margin-top: 50px;
+}
+.role{
+    margin-left: 530px;
+}
+.role1{
+    margin-left: 30px;
+}
+.desc{
+    margin-left: 500px;
+}
+.desc1{
+    margin-left: 10px;
+}
+.name-error{
+    margin-left: 175px;
+}
+.submit{
+    margin-left: 640px;
+}

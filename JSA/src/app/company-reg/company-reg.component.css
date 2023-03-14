@@ -1,0 +1,60 @@
+h3{
+    text-align: center;
+    background-color: rgb(138, 211, 245);
+    margin:0px;
+    padding: 15px ;
+}
+body{
+    margin-top: 50px;
+}
+.name{
+    margin-left: 500px;
+}
+.name1{
+    margin-left: 63px;
+}
+.email{
+    margin-left: 500px;
+}
+.email1{
+    margin-left: 62px;
+}
+.phone-no{
+    margin-left: 500px;
+}
+.phone-no1{
+    margin-left: 5px;
+}
+.password{
+    margin-left: 500px;
+}
+.password1{
+    margin-left: 40px;
+}
+.company-type{
+    margin-left: 500px;
+}
+.company-type1{
+    margin-left: 73px;
+}
+.address{
+    margin-left: 500px;
+}
+.address1{
+    margin-left: 50px;
+}
+.location{
+    margin-left: 500px;
+}
+.location1{
+    margin-left: 75px;
+}
+.register{
+    margin-left: 650px;
+}
+.login{
+    text-align: center;
+}
+.name-error{
+    margin-left: 175px;
+}

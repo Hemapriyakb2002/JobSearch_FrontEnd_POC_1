@@ -1,0 +1,27 @@
+h3{
+    text-align: center;
+    background-color: rgb(138, 211, 245);
+    margin-top:0px;
+    padding: 15px ;
+}
+body{
+    margin-top: 50px;
+}
+.email{
+    margin-left: 500px;
+}
+.email1{
+    margin-left: 42px;
+}
+.password{
+    margin-left: 500px;
+}
+.password1{
+    margin-left: 20px;
+}
+.login{
+    margin-left: 640px;
+}
+.name-error{
+    margin-left: 175px;
+}
