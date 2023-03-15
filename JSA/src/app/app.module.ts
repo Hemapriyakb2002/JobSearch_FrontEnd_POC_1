@@ -10,6 +10,8 @@ import { CompanyRegComponent } from './company-reg/company-reg.component';
 import { CompanyLoginComponent } from './company-reg/company-login/company-login.component';
 import { CompanyJobpostComponent } from './company-reg/company-jobpost/company-jobpost.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

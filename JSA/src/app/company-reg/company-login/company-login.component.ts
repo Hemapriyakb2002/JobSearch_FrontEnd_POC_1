@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { HttpclientService } from 'src/app/httpclient.service';
 
 @Component({
   selector: 'app-company-login',
@@ -7,7 +8,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./company-login.component.css']
 })
 export class CompanyLoginComponent {
-  getValues(val:NgForm){
-    console.log(val);
+  constructor(public httpService:HttpclientService){
+
+  }
+  getValues(data:NgForm){
+    console.log(data);
+    //this.httpService.saveUser(`/login`,data).subscribe((res)=>{
+    //  console.log(res);
+    //});
   }
 }

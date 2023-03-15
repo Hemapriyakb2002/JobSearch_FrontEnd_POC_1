@@ -20,7 +20,7 @@
             <span *ngIf="phoneno1.invalid && phoneno1.touched && phoneno1.dirty" style="color:red ;" class="name-error">Please enter a valid number</span>
         </p>
         <p class="password">Company Password:
-            <input ngModel #password1="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="company_password" id="password" type="password" class="password1" placeholder="Set your password" required>
+            <input ngModel #password1="ngModel" name="company_password" id="password" type="password" class="password1" placeholder="Set your password" required>
             <br>
             <span *ngIf="password1.invalid && password1.touched && password1.dirty" style="color:red ;" class="name-error">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
         </p>
@@ -38,9 +38,15 @@
             <span *ngIf="location.invalid && location.touched && location.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
         </p>
         
-        <button [disabled]="simpleForm.invalid" (click)="getValues(simpleForm.value)" type="submit" class="register" routerLink="./login">
+        <button [disabled]="simpleForm.invalid" (click)="getValues(simpleForm.value)" type="submit" class="register">
            Register
         </button>
+        <p *ngIf="errorMessage !== 'data saved'">{{errorMessage}}</p>
+        <!-- <p *ngIf="errorMessage !== 'data saved'">
+            <ngb-alert>{{ errorMessage }}</ngb-alert>
+        </p> -->
+        
+        
        <p class="login">Already have an account? <a routerLink="./login">Login</a> </p>
        
     </form>
