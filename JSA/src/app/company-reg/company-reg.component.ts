@@ -1,13 +1,9 @@
 
-    //localStorage.setItem("session",JSON.stringify(data));
-    //this.httpService.saveUser(data).subscribe((res)=>{
-    //  console.log(res,"hi");
-    //});
-
 
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+//import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpclientService } from '../httpclient.service';
 
 @Component({
   selector: 'app-company-reg',
@@ -15,25 +11,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./company-reg.component.css']
 })
 export class CompanyRegComponent {
-  constructor(public http:HttpClient){ }
-  errorMessage:any='data saved';
-
-  getValues(data:NgForm){    
-    //console.log(data);
-
-    //localStorage.setItem("session",JSON.stringify(data));
-    //try{
-      this.http.post<any>(`http://127.0.0.1:8000`,data).subscribe((res)=>{
-        console.log(res.message);
-      },(err)=>{
-        this.errorMessage=err.error.detail;
-      }
-      );
-   // }
-  }
+  constructor(public service:HttpclientService){ }
   
+  getValues(data:NgForm){
+    this.service.companyReg(data)
+  }
 
-  // message(data:NgForm){
-  //   return this.errorMessage
-  // }
 }

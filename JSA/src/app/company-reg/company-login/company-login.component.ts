@@ -8,13 +8,10 @@ import { HttpclientService } from 'src/app/httpclient.service';
   styleUrls: ['./company-login.component.css']
 })
 export class CompanyLoginComponent {
-  constructor(public httpService:HttpclientService){
-
-  }
+  constructor(public service:HttpclientService){ }
+  
   getValues(data:NgForm){
-    console.log(data);
-    //this.httpService.saveUser(`/login`,data).subscribe((res)=>{
-    //  console.log(res);
-    //});
+    this.service.companyLogin(data);
   }
+
 }

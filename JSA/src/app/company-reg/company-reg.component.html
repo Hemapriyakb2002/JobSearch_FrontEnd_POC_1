@@ -3,7 +3,7 @@
 </head>
 <h3>Company Sign-in</h3>
 <body>
-    <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
+    <form #simpleForm="ngForm">
         <p class="name">Company Name:
             <input ngModel required #name="ngModel" pattern="[a-z A-z 0-9]+$" name="company_name" id="Name" type="text" class="name1" placeholder="Ex. abc solutions">
             <br>
@@ -38,10 +38,10 @@
             <span *ngIf="location.invalid && location.touched && location.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
         </p>
         
-        <button [disabled]="simpleForm.invalid" (click)="getValues(simpleForm.value)" type="submit" class="register">
+        <button [disabled]="simpleForm.invalid" (click)="getValues(simpleForm.value);" type="submit" class="register">
            Register
         </button>
-        <p *ngIf="errorMessage !== 'data saved'">{{errorMessage}}</p>
+        <!-- <p *ngIf="errorMessage !== undefined">{{errorMessage}}</p> -->
         <!-- <p *ngIf="errorMessage !== 'data saved'">
             <ngb-alert>{{ errorMessage }}</ngb-alert>
         </p> -->

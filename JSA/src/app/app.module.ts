@@ -11,6 +11,9 @@ import { CompanyLoginComponent } from './company-reg/company-login/company-login
 import { CompanyJobpostComponent } from './company-reg/company-jobpost/company-jobpost.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpclientService } from './httpclient.service';
 //import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
@@ -27,9 +30,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      //progressAnimation: 'decreasing',
+      preventDuplicates: true,
+      progressBar: true,
+      timeOut: 3000
+    })
   ],
-  providers: [],
+  providers: [HttpclientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
