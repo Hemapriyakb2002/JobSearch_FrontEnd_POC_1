@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { HttpclientService } from 'src/app/httpclient.service';
 
 @Component({
   selector: 'app-company-jobpost',
@@ -7,10 +8,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./company-jobpost.component.css']
 })
 export class CompanyJobpostComponent {
-  getValues(val:NgForm){
-    console.log(val);
+  constructor(public service:HttpclientService){
+   this.record=this.service
+  }
+  public record:any;
+  getValues(data:NgForm){
+    
+  }
+  ngOnInit(){
+    
+      this.record = this.service;
+    console.log(this.record);
   }
   show(){
-    window.alert("Job posted successfully...");
+    alert("Job applied successfully")
   }
 }

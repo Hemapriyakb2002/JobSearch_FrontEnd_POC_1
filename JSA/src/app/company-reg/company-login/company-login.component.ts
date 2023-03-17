@@ -11,7 +11,17 @@ export class CompanyLoginComponent {
   constructor(public service:HttpclientService){ }
   
   getValues(data:NgForm){
-    this.service.companyLogin(data);
+    this.service.companyLogin(data)
+    //console.log(this.service)
+    //this.service.mydata=data;
+    // this.service.getCompanyData().subscribe((res)=>{this.record=res})
+    // console.log(this.record);
+    
+    
   }
-
+  print(){
+    
+    //console.log(a);
+  }
+  
 }

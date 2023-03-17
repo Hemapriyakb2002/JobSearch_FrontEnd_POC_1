@@ -18,9 +18,8 @@
         </p>
         
         <br>
-        <button [disabled]="simpleForm.invalid" (click)="getValues(simpleForm.value);" type="submit" class="login" routerLink="../jobpost">
+        <button [disabled]="simpleForm.invalid" (click)="getValues(simpleForm.value); print();" type="submit" class="login" routerLink="../jobpost">
            Login
-        </button>
-       
+        </button>       
     </form>
 </body>
