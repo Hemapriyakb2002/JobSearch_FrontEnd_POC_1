@@ -10,8 +10,8 @@ import { BehaviorSubject, catchError, Observable, of, throwError } from 'rxjs';
 })
 export class HttpclientService {
   public serverUrl = `http://127.0.0.1:8000`;
-  public id = 1;
   mydata: any;
+  myObject: any;
   constructor(public http:HttpClient, public toastr:ToastrService,public router:Router) { 
     
   }
@@ -31,40 +31,25 @@ export class HttpclientService {
 
   async companyLogin(data:NgForm) {
     try {
-      var res = await this.http.post<any>(`${this.serverUrl}`+`/login`,data)
-                               .toPromise()
-                               .then((data1)=>{
-                                // const {company_name,company_email,company_city,company_address,company_type
-                                // } = data.data
-                                this.mydata=data1.data;
-                                this.setCompanyData(data1.data);
-                                // localStorage.setItem("company_name",company_name);
-                                // localStorage.setItem("company_email",company_email);
-                                // localStorage.setItem("company_city",company_city);
-                                // localStorage.setItem("company_address",company_address);
-                                // localStorage.setItem("company_type",company_type);             
-        })
+      var res = await this.http.post<any>(`${this.serverUrl}`+`/login`,data).toPromise()
+        this.mydata=res.data;
     } catch (error:any) {
       alert(error.error.detail);
       this.router.navigate(['']);
     } 
   }
+
+  companyJobpost(data:NgForm){
+    //console.log(data.value);
+    this.http.post<any>(`${this.serverUrl}`+`/job_entry`,data).subscribe((res)=>{
+      alert(res.message);
+    })
+  }
   
-  setCompanyData(data:any) {
-    //mydata = data;
-    //console.log(this.mydata);
+  jobSearch(){
+    return this.http.get<any>(`${this.serverUrl}`+`/job_search`)
   }
-
-  getCompanyData(){
-    // console.log(this.mydata);
-    return this.http.get<any>("http://127.0.0.1:8000/")
-  }
-  }
-
-  // companyJobpost(data:NgForm){
-  //   // this.http.post<any>(`${this.serverUrl}`+`/job_entry`,data).subscribe((res)=>{
-  //   //   console.log(res);
-  //   })
+}
     
   
 

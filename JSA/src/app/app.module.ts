@@ -12,7 +12,13 @@ import { CompanyJobpostComponent } from './company-reg/company-jobpost/company-j
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
 import { HttpclientService } from './httpclient.service';
 //import { NgToastModule } from 'ng-angular-popup';
 
@@ -31,7 +37,13 @@ import { HttpclientService } from './httpclient.service';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatInputModule,
+    MatCardModule,
     BrowserAnimationsModule,
+    MatButtonToggleModule,
     ToastrModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',

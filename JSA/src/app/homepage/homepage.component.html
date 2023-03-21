@@ -2,10 +2,39 @@
     <link rel="stylesheet" href="homepage.component.css">
 </head>
     <div class="home">
-        <h2>Job Search Application</h2>
-        <p><a routerLink="/register">Company Sign-in</a></p>
-        <a routerLink="/register/login">Company Login</a>
-        <p><a routerLink="/reg">apply</a></p>
+            <mat-button-toggle-group>
+                <mat-button-toggle routerLink="/register" class="header">Company Sign-in</mat-button-toggle>
+                <mat-button-toggle routerLink="/register/login" class="header" style="border-color: rgb(126, 195, 255);">Company Login</mat-button-toggle>
+            </mat-button-toggle-group>
+            <h2>Job Search Application
+        </h2>
+        <div class="searchBar">
+            <input type="text" class="search-box" placeholder="🔎︎ Search something">           
+        </div>
+
+        <mat-card *ngFor="let comp of companyList; let i=index">
+            <mat-card-header >
+              <mat-card-title>{{comp.company_name}}</mat-card-title>
+              <mat-card-subtitle>Role: {{comp.job_role}}</mat-card-subtitle>
+              <mat-card-content>Job Description: {{comp.job_description}}</mat-card-content>
+              <br>
+              <mat-card-content>Type: {{comp.company_type}}</mat-card-content>&nbsp;
+              <mat-card-content>Address: {{comp.company_location}}</mat-card-content>&nbsp;
+              <mat-card-content>City: {{comp.company_city}}</mat-card-content>&nbsp;
+            </mat-card-header>
+            <mat-card-actions align="end">
+                <mat-button-toggle-group class="apply-button">
+                    <mat-button-toggle routerLink="/reg" class="apply">Apply</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-card-actions>
+        </mat-card>
+        
     </div>
     
-<p class="date">Date: {{todayDate | date :"dd/MM/yyyy"}}</p>
+    <p class="date">Date: {{todayDate | date :"dd/MM/yyyy"}}</p>
+    <mat-paginator [length]="100"
+        [pageSize]="10"
+        [pageSizeOptions]="[5,10,20,50]"
+        aria-label="Select page" class="page">
+    </mat-paginator>
+

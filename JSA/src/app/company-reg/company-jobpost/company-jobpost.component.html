@@ -1,22 +1,25 @@
 <head>
     <link rel="stylesheet" href="company-jobpost.component.css">
 </head>
+<p class="name">Welcome, {{service.mydata.company_name}}!</p>
+<p class="mail">Your mail:{{service.mydata.company_email}}</p>
+<!-- <p class="id">Your id:{{service.mydata}}</p> -->
 <h3>Company Job post</h3>
 <body>
     
-    <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
+    <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value, service.mydata.company_id)">
         
         <p class="role">Job role:
-            <input ngModel #role="ngModel" pattern="[a-z A-z 0-9]+$" name="role" id="role" type="role" class="role1" placeholder="Ex. Software Developer" required>
+            <input ngModel #role="ngModel" pattern="[a-z A-z 0-9]+$" name="job_role" id="role" type="role" class="role1" placeholder="Ex. Software Developer" required>
             <br>
             <span *ngIf="role.invalid && role.touched && role.dirty" style="color:red ;" class="name-error">Please enter a valid Mail id</span>
         </p>
         <p class="desc">Job Description:
-            <textarea ngModel class="desc1" name="desc" id="desc" cols="20" rows="5" maxlength="100" placeholder="Type Job Description" required></textarea>
+            <textarea ngModel class="desc1" name="job_description" id="desc" cols="20" rows="5" maxlength="100" placeholder="Type Job Description" required></textarea>
         </p>
         
         <br>
-        <button [disabled]="simpleForm.invalid" type="submit" class="submit" (click)="show()">
+        <button [disabled]="simpleForm.invalid" type="submit" class="submit">
            Submit
         </button>
        

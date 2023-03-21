@@ -8,19 +8,15 @@ import { HttpclientService } from 'src/app/httpclient.service';
   styleUrls: ['./company-jobpost.component.css']
 })
 export class CompanyJobpostComponent {
-  constructor(public service:HttpclientService){
-   this.record=this.service
-  }
-  public record:any;
-  getValues(data:NgForm){
-    
-  }
-  ngOnInit(){
-    
-      this.record = this.service;
-    console.log(this.record);
-  }
-  show(){
-    alert("Job applied successfully")
-  }
+  constructor(public service:HttpclientService){  }
+ 
+  getValues(data:any, id:number){
+    const {job_role,job_description}=data;
+    const data_set:any={
+      job_role:job_role,
+      job_description:job_description,
+      company_id:id
+    }
+    this.service.companyJobpost(data_set);
+  }  
 }
