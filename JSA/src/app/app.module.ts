@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { HttpclientService } from './httpclient.service';
+import { FilterPipe } from './filter.pipe';
 //import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HttpclientService } from './httpclient.service';
     HomepageComponent,
     CompanyRegComponent,
     CompanyLoginComponent,
-    CompanyJobpostComponent
+    CompanyJobpostComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

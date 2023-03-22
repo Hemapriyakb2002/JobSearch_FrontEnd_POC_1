@@ -9,32 +9,37 @@
             <h2>Job Search Application
         </h2>
         <div class="searchBar">
-            <input type="text" class="search-box" placeholder="🔎︎ Search something">           
+            <input type="text" class="search-box" [(ngModel)]="searchText" placeholder="🔎︎ Search something">           
         </div>
 
-        <mat-card *ngFor="let comp of companyList; let i=index">
-            <mat-card-header >
+        <mat-card *ngFor="let comp of pageslice | filter:searchText">
+            <!-- <div *ngIf="searchText==='' || comp.company_name.includes(searchText) || comp.company_city.includes(searchText) || comp.job_role.includes(searchText) || comp.company_type.includes(searchText)"> -->
+            <mat-card-header>
               <mat-card-title>{{comp.company_name}}</mat-card-title>
               <mat-card-subtitle>Role: {{comp.job_role}}</mat-card-subtitle>
               <mat-card-content>Job Description: {{comp.job_description}}</mat-card-content>
-              <br>
               <mat-card-content>Type: {{comp.company_type}}</mat-card-content>&nbsp;
               <mat-card-content>Address: {{comp.company_location}}</mat-card-content>&nbsp;
               <mat-card-content>City: {{comp.company_city}}</mat-card-content>&nbsp;
             </mat-card-header>
             <mat-card-actions align="end">
                 <mat-button-toggle-group class="apply-button">
-                    <mat-button-toggle routerLink="/reg" class="apply">Apply</mat-button-toggle>
+                    <mat-button-toggle routerLink="/reg" class="apply" (click)="getId(comp)">Apply</mat-button-toggle>
                 </mat-button-toggle-group>
             </mat-card-actions>
+        <!-- </div> -->
         </mat-card>
+    
         
     </div>
     
     <p class="date">Date: {{todayDate | date :"dd/MM/yyyy"}}</p>
-    <mat-paginator [length]="100"
-        [pageSize]="10"
-        [pageSizeOptions]="[5,10,20,50]"
+    
+    <mat-paginator 
+        [length]="companyList.length" 
+        [pageSize]="5" 
+        [pageSizeOptions]="[5, 10, 25, 50]" 
+        (page)="onPageChange($event)"
         aria-label="Select page" class="page">
     </mat-paginator>
 

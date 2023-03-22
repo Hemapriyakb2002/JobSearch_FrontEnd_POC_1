@@ -1,7 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { PageEvent } from '@angular/material/paginator';
-import { Observable } from 'rxjs';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { HttpclientService } from '../httpclient.service';
 
 @Component({
@@ -10,14 +8,13 @@ import { HttpclientService } from '../httpclient.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-  companyList:any;
+  companyList:any[]=[];
+  searchText:string='';
   todayDate=new Date().toDateString();
-  cardList:any;
-  pagedCardList: Observable<any[]>;
+  pageslice = this.companyList.slice(0,5);  //second executes
+
   constructor(public service:HttpclientService){
     this.companyList=[];
-    this.cardList=[];
-    this.pagedCardList=this.getPage(0,10);
   }
   
   ngOnInit():void{
@@ -25,16 +22,18 @@ export class HomepageComponent {
       this.companyList=res;
     });
   }
-  
-  onPageChanged(event:PageEvent):void{
-    this.pagedCardList=this.getPage(event.pageIndex,event.pageSize);
+
+  onPageChange(event: PageEvent) {
+    const startIndex = event.pageIndex * event.pageSize; //0*5 1*5 or //0*10  0*25  0*50  
+    let endIndex = startIndex + event.pageSize;   //0+5  5+5
+    if(endIndex > this.companyList.length){
+      endIndex = this.companyList.length
+    }
+    this.pageslice = this.companyList.slice(startIndex,endIndex) //frst executes
   }
-  getPage(pageIndex:number,pageSize:number):Observable<any[]>{
-    const startIndex = pageIndex * pageSize;
-    const endIndex = startIndex + pageSize;
-    const page = this.cardList.slice(startIndex,endIndex);
-    return new Observable<any[]>(obs=>{
-      obs.next(page);
-    })
+
+  getId(comp:number){
+    this.service.candidate(comp);
   }
+ 
 }

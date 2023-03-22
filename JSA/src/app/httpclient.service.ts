@@ -12,9 +12,8 @@ export class HttpclientService {
   public serverUrl = `http://127.0.0.1:8000`;
   mydata: any;
   myObject: any;
-  constructor(public http:HttpClient, public toastr:ToastrService,public router:Router) { 
-    
-  }
+  userApply: any;
+  constructor(public http:HttpClient, public toastr:ToastrService,public router:Router) {  }
   
   async companyReg(data:NgForm) {
     try {
@@ -43,11 +42,25 @@ export class HttpclientService {
     //console.log(data.value);
     this.http.post<any>(`${this.serverUrl}`+`/job_entry`,data).subscribe((res)=>{
       alert(res.message);
+      this.router.navigate(['']);
     })
   }
   
   jobSearch(){
     return this.http.get<any>(`${this.serverUrl}`+`/job_search`)
+  }
+
+  candidate(comp:any){
+    this.userApply=comp;
+    console.log(this.userApply);
+  }
+
+  candidateApply(data:NgForm){
+    console.log(data);
+    this.http.post<any>(`${this.serverUrl}`+`/candidate_apply`,data).subscribe((res)=>{
+      alert(res.message);
+      this.router.navigate(['']);
+    })
   }
 }
     
