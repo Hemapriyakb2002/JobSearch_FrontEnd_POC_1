@@ -12,7 +12,7 @@
             <span *ngIf="email.invalid && email.touched && email.dirty" style="color:red ;" class="name-error">Please enter a valid Mail id</span>
         </p>
         <p class="password">Company Password:
-            <input ngModel #password1="ngModel" name="company_password" id="password" type="numbers" class="password1" placeholder="Enter password" required>
+            <input ngModel #password1="ngModel" name="company_password" id="password" type="password" class="password1" placeholder="Enter password" required>
             <br>
             <span *ngIf="password1.invalid && password1.touched && password1.dirty" style="color:red ;" class="name-error">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
         </p>

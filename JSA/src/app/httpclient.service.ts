@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { BehaviorSubject, catchError, Observable, of, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
+// import { catchError } from 'rxjs/operators';
+// import { throwError } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +16,7 @@ export class HttpclientService {
   mydata: any;
   myObject: any;
   userApply: any;
-  constructor(public http:HttpClient, public toastr:ToastrService,public router:Router) {  }
+  constructor(public http:HttpClient, public toastr:ToastrService, public router:Router) {  }
   
   async companyReg(data:NgForm) {
     try {
@@ -27,6 +30,17 @@ export class HttpclientService {
       alert(error.error.detail);
     } 
   }
+  // companyReg(data: NgForm) {
+  //   this.http.post<any>(`${this.serverUrl}`, data).pipe(
+  //     catchError((error: any) => {
+  //       alert(error.error.detail);
+  //       return throwError(error);
+  //     })
+  //   ).subscribe((res: any) => {
+  //     alert(res.message);
+  //     this.router.navigate(['register/login']);
+  //   });
+  // }
 
   async companyLogin(data:NgForm) {
     try {
@@ -37,9 +51,19 @@ export class HttpclientService {
       this.router.navigate(['']);
     } 
   }
+  // companyLogin(data: NgForm) {
+  //   this.http.post<any>(`${this.serverUrl}` + `/login`, data).pipe(
+  //     catchError((error: any) => {
+  //       alert(error.error.detail);
+  //       this.router.navigate(['']);
+  //       return throwError(error);
+  //     })
+  //   ).subscribe((res: any) => {
+  //     this.mydata = res.data;
+  //   });
+  // }
 
   companyJobpost(data:NgForm){
-    //console.log(data.value);
     this.http.post<any>(`${this.serverUrl}`+`/job_entry`,data).subscribe((res)=>{
       alert(res.message);
       this.router.navigate(['']);

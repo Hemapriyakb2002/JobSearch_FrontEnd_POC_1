@@ -12,10 +12,10 @@
         <p class="role">Job role:
             <input ngModel #role="ngModel" pattern="[a-z A-z 0-9]+$" name="job_role" id="role" type="role" class="role1" placeholder="Ex. Software Developer" required>
             <br>
-            <span *ngIf="role.invalid && role.touched && role.dirty" style="color:red ;" class="name-error">Please enter a valid Mail id</span>
+            <span *ngIf="role.invalid && role.touched && role.dirty" style="color:red ;" class="name-error">Please enter a valid input</span>
         </p>
         <p class="desc">Job Description:
-            <textarea ngModel class="desc1" name="job_description" id="desc" cols="20" rows="5" maxlength="100" placeholder="Type Job Description" required></textarea>
+            <textarea ngModel class="desc1" name="job_description" id="desc" cols="20" rows="5" maxlength="500" placeholder="Type Job Description" required></textarea>
         </p>
         
         <br>

@@ -11,16 +11,18 @@ export class HomepageComponent {
   companyList:any[]=[];
   searchText:string='';
   todayDate=new Date().toDateString();
-  pageslice = this.companyList.slice(0,5);  //second executes
+  pageslice:any;  //second executes
 
   constructor(public service:HttpclientService){
     this.companyList=[];
-  }
-  
-  ngOnInit():void{
     this.service.jobSearch().subscribe((res)=>{
       this.companyList=res;
     });
+  }
+  
+  ngOnInit():void{
+    // const mockPageEvent: PageEvent = { pageIndex: 0, pageSize: 5, length: this.companyList.length };
+    // setTimeout(() => this.onPageChange(mockPageEvent), 0);
   }
 
   onPageChange(event: PageEvent) {

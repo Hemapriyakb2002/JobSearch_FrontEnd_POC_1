@@ -15,7 +15,7 @@
         <mat-card *ngFor="let comp of pageslice | filter:searchText">
             <!-- <div *ngIf="searchText==='' || comp.company_name.includes(searchText) || comp.company_city.includes(searchText) || comp.job_role.includes(searchText) || comp.company_type.includes(searchText)"> -->
             <mat-card-header>
-              <mat-card-title>{{comp.company_name}}</mat-card-title>
+              <mat-card-title>{{comp.company_name | uppercase}}</mat-card-title>
               <mat-card-subtitle>Role: {{comp.job_role}}</mat-card-subtitle>
               <mat-card-content>Job Description: {{comp.job_description}}</mat-card-content>
               <mat-card-content>Type: {{comp.company_type}}</mat-card-content>&nbsp;
