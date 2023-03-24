@@ -52,7 +52,7 @@ import { FilterPipe } from './filter.pipe';
       //progressAnimation: 'decreasing',
       preventDuplicates: true,
       progressBar: true,
-      timeOut: 3000
+      timeOut: 5000
     })
   ],
   providers: [HttpclientService],

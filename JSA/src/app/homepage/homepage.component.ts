@@ -11,18 +11,16 @@ export class HomepageComponent {
   companyList:any[]=[];
   searchText:string='';
   todayDate=new Date().toDateString();
-  pageslice:any;  //second executes
+  pageslice:any;  
 
   constructor(public service:HttpclientService){
     this.companyList=[];
     this.service.jobSearch().subscribe((res)=>{
       this.companyList=res;
+      const mockPageEvent: PageEvent = { pageIndex: 0, pageSize: 5, length: this.companyList.length };
+      setTimeout(() => this.onPageChange(mockPageEvent), 0);
     });
-  }
-  
-  ngOnInit():void{
-    // const mockPageEvent: PageEvent = { pageIndex: 0, pageSize: 5, length: this.companyList.length };
-    // setTimeout(() => this.onPageChange(mockPageEvent), 0);
+    
   }
 
   onPageChange(event: PageEvent) {
@@ -31,7 +29,7 @@ export class HomepageComponent {
     if(endIndex > this.companyList.length){
       endIndex = this.companyList.length
     }
-    this.pageslice = this.companyList.slice(startIndex,endIndex) //frst executes
+    this.pageslice = this.companyList.slice(startIndex,endIndex) 
   }
 
   getId(comp:number){

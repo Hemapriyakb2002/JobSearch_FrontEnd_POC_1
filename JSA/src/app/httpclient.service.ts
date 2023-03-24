@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 // import { catchError } from 'rxjs/operators';
 // import { throwError } from 'rxjs';
 
@@ -23,11 +23,11 @@ export class HttpclientService {
       var res = await this.http.post<any>(`${this.serverUrl}`,data)
                                .toPromise()
                                .then((res)=>{
-                                 alert(res.message)
+                                 this.toastr.success(res.message)
                                  this.router.navigate(['register/login']);
       })
     } catch (error:any) {
-      alert(error.error.detail);
+      this.toastr.error(error.error.detail);
     } 
   }
   // companyReg(data: NgForm) {
@@ -46,26 +46,16 @@ export class HttpclientService {
     try {
       var res = await this.http.post<any>(`${this.serverUrl}`+`/login`,data).toPromise()
         this.mydata=res.data;
+        this.toastr.success("Welcome to Job Portal");
     } catch (error:any) {
-      alert(error.error.detail);
+      this.toastr.error(error.error.detail);
       this.router.navigate(['']);
     } 
   }
-  // companyLogin(data: NgForm) {
-  //   this.http.post<any>(`${this.serverUrl}` + `/login`, data).pipe(
-  //     catchError((error: any) => {
-  //       alert(error.error.detail);
-  //       this.router.navigate(['']);
-  //       return throwError(error);
-  //     })
-  //   ).subscribe((res: any) => {
-  //     this.mydata = res.data;
-  //   });
-  // }
 
   companyJobpost(data:NgForm){
     this.http.post<any>(`${this.serverUrl}`+`/job_entry`,data).subscribe((res)=>{
-      alert(res.message);
+      this.toastr.success(res.message);
       this.router.navigate(['']);
     })
   }
@@ -82,7 +72,7 @@ export class HttpclientService {
   candidateApply(data:NgForm){
     console.log(data);
     this.http.post<any>(`${this.serverUrl}`+`/candidate_apply`,data).subscribe((res)=>{
-      alert(res.message);
+      this.toastr.success(res.message);
       this.router.navigate(['']);
     })
   }

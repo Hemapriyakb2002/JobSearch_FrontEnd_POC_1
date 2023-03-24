@@ -2,7 +2,6 @@
 
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-//import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { HttpclientService } from '../httpclient.service';
 
 @Component({
